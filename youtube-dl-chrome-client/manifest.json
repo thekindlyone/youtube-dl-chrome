@@ -1,0 +1,15 @@
+{
+  "name": "YouTube Downloader",
+  "version": "1.0",
+  "manifest_version": 2,
+  "options_page": "options.html",
+  "description": "Opens YouTube DL in ConEmu and downloads YouTube Videos",
+  "browser_action": {
+
+    "default_popup": "popup.html"
+  },
+  "icons":{
+      "48":"icons/icon-48.png","128":"icons/icon-128.png"
+    },
+  "permissions": ["tabs","contextMenus", "<all_urls>","storage"]
+}
