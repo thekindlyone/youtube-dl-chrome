@@ -1,7 +1,9 @@
 from flask import Flask, request
 import subprocess
 import os, platform
+import config
 Windows=False
+
 if platform.system()=="Windows":
     Windows=True
 
@@ -24,7 +26,7 @@ def dload(url):
    
     #sel=Selector()
     #directory=sel.get_save_dir()
-    directory="H:\\Videos\\"
+    directory=config.DIRECTORY
     if not Windows:
         sel.kill()
     if directory:
@@ -32,7 +34,10 @@ def dload(url):
     if not Windows:
         subprocess.Popen(['gnome-terminal', '-x', 'youtube-dl',url])
     else:
-        subprocess.Popen(['ConEmu64', '/cmd ', 'youtube-dl',url])
+        if config.WindowsConEmu:
+            subprocess.Popen(['ConEmu64', '/cmd ', 'youtube-dl',url])
+        else:
+            subprocess.Popen(['cmd', '/c ', 'youtube-dl',url])
 if __name__ == '__main__':
     app.run(debug=True)
 
