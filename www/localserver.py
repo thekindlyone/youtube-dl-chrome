@@ -37,8 +37,6 @@ def dload(url):
         if config.WindowsConEmu:
             subprocess.Popen(['ConEmu64', '/cmd ', 'youtube-dl',url])
         else:
-            subprocess.Popen(['cmd', '/c ', 'youtube-dl',url])
+            subprocess.Popen(['start', 'youtube-dl',url])
 if __name__ == '__main__':
     app.run(debug=True)
-
-
