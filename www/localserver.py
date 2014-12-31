@@ -27,8 +27,8 @@ def dload(url):
     #sel=Selector()
     #directory=sel.get_save_dir()
     directory=config.DIRECTORY
-    if not Windows:
-        sel.kill()
+    # if not Windows:
+    #     sel.kill()
     if directory:
         os.chdir(directory)
     if not Windows:
